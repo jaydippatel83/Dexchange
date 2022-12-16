@@ -16,6 +16,9 @@ import {
 } from "../utils/removeLiquidity";
 import { swapTokens, getAmountOfTokensReceivedFromSwap } from "../utils/swap";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Home() {
   /** General state variables */
   // loading is set to true when the transaction is mining and set to false when
@@ -122,9 +125,10 @@ export default function Home() {
         // Get all the updated amounts after the swap
         await getAmounts();
         setSwapAmount("");
+        toast.success("Successfully Swap Token!")
       }
     } catch (err) {
-      console.error(err);
+      toast.error(err);
       setLoading(false);
       setSwapAmount("");
     }
@@ -187,12 +191,14 @@ export default function Home() {
         setAddCDTokens(zero);
         // Get amounts for all values after the liquidity has been added
         await getAmounts();
+        toast.success("Successfully Added Liquidity!")
       } else {
         setAddCDTokens(zero);
       }
     } catch (err) {
       console.error(err);
       setLoading(false);
+      toast.error("Error!")
       setAddCDTokens(zero);
     }
   };
@@ -217,11 +223,13 @@ export default function Home() {
       await getAmounts();
       setRemoveCD(zero);
       setRemoveEther(zero);
+      toast.success("Successfully remove Liquidity!")
     } catch (err) {
       console.error(err);
       setLoading(false);
       setRemoveCD(zero);
       setRemoveEther(zero);
+      toast.error("Error");
     }
   };
 
@@ -264,8 +272,10 @@ export default function Home() {
       // When used for the first time, it prompts the user to connect their wallet
       await getProviderOrSigner();
       setWalletConnected(true);
+      toast.success("Connect!")
     } catch (err) {
       console.error(err);
+      toast.error("Something want wrong!");
     }
   };
 
@@ -331,7 +341,7 @@ export default function Home() {
     if (!walletConnected) {
       return (
         <button onClick={connectWallet} className={styles.button}>
-          Connect your wallet
+          Connect your wallet 
         </button>
       );
     }
@@ -482,6 +492,7 @@ export default function Home() {
   return (
     <div>
       <Head>
+        <ToastContainer/>
         <title>Crypto Devs</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
@@ -518,7 +529,7 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
+        Made with &#10084; by Jaydip Patel
       </footer>
     </div>
   );
