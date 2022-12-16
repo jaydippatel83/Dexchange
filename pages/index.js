@@ -491,13 +491,13 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <ToastContainer/>
+      <Head> 
         <title>Crypto Devs</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
+        <ToastContainer/>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs Exchange!</h1>
           <div className={styles.description}>
