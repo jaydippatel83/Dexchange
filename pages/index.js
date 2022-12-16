@@ -350,7 +350,7 @@ export default function Home() {
             {/* Convert the BigNumber to string using the formatEther function from ethers.js */}
             {utils.formatEther(cdBalance)} Crypto Dev Tokens
             <br />
-            {utils.formatEther(ethBalance)} Ether
+            {utils.formatEther(ethBalance)} MATIC
             <br />
             {utils.formatEther(lpBalance)} Crypto Dev LP tokens
           </div>
@@ -362,7 +362,7 @@ export default function Home() {
               <div>
                 <input
                   type="number"
-                  placeholder="Amount of Ether"
+                  placeholder="Amount of MATIC"
                   onChange={(e) => setAddEther(e.target.value || "0")}
                   className={styles.input}
                 />
@@ -384,7 +384,7 @@ export default function Home() {
               <div>
                 <input
                   type="number"
-                  placeholder="Amount of Ether"
+                  placeholder="Amount of MATIC"
                   onChange={async (e) => {
                     setAddEther(e.target.value || "0");
                     // calculate the number of CD tokens that
@@ -423,7 +423,7 @@ export default function Home() {
               <div className={styles.inputDiv}>
                 {/* Convert the BigNumber to string using the formatEther function from ethers.js */}
                 {`You will get ${utils.formatEther(removeCD)} Crypto
-              Dev Tokens and ${utils.formatEther(removeEther)} Eth`}
+              Dev Tokens and ${utils.formatEther(removeEther)} MATIC`}
               </div>
               <button className={styles.button1} onClick={_removeLiquidity}>
                 Remove
@@ -457,7 +457,7 @@ export default function Home() {
               setSwapAmount("");
             }}
           >
-            <option value="eth">Ethereum</option>
+            <option value="eth">MATIC</option>
             <option value="cryptoDevToken">Crypto Dev Token</option>
           </select>
           <br />
@@ -469,7 +469,7 @@ export default function Home() {
                 )} Crypto Dev Tokens`
               : `You will get ${utils.formatEther(
                   tokenToBeReceivedAfterSwap
-                )} Eth`}
+                )} MATIC`}
           </div>
           <button className={styles.button1} onClick={_swapTokens}>
             Swap
@@ -490,7 +490,7 @@ export default function Home() {
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs Exchange!</h1>
           <div className={styles.description}>
-            Exchange Ethereum &#60;&#62; Crypto Dev Tokens
+            Exchange MATIC &#60;&#62; Crypto Dev Tokens
           </div>
           <div>
             <button
